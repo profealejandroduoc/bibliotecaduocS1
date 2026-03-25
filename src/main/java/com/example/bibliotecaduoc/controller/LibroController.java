@@ -9,6 +9,9 @@ import com.example.bibliotecaduoc.model.Libro;
 import com.example.bibliotecaduoc.service.LibroService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+
 
 
 
@@ -22,5 +25,13 @@ public class LibroController {
     public List<Libro> listaLibros() {
        return libroService.readAll();
     }
+
+    @PostMapping
+    public Libro agregarLibro(@RequestBody Libro libro) {
+        //TODO: process POST request
+        libroService.save(libro);
+        return libro;
+    }
+    
     
 }
